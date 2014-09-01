@@ -1,184 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Chaoyi Zha</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script type="text/javascript">
-//<![CDATA[
-try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dokv=88e434a982/"},atok:"d5a1b621b1f980465c744c28c8cae12e",petok:"2f3ea3f6136da276a40c917146b5b3ce936fb24d-1409580210-1800",zone:"cydrobolt.com",rocket:"0",apps:{"abetterbrowser":{"ie":"7"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dokv=97fb4d042e/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
-//]]>
+<script type="text/javascript" id="cosymantecbfw_resize">var kvcPushDownExceptions = {};									var retryCSSHack = 0;									var isUrlExcepted = function() {										if(!window.location || !kvcPushDownExceptions) {											return false;										}										var result = false;										var path = kvcPushDownExceptions[window.location.host];										if(path) {											var patt = new RegExp(path, "i");											result = patt.test(window.location.pathname);										}										if (!result) {											var listRegExUrls = kvcPushDownExceptions["listRegExUrls"];											if (listRegExUrls) {												for (var i = 0; i < listRegExUrls.length; i++) {													var regexPattern = new RegExp(listRegExUrls[i], "i");													if (regexPattern.test(window.location.href)) {														return true;													}												}											}										}										return result;									};									document.addEventListener("initializeExceptionListEvent", function(e) {										if(!e || !e.detail) { 											return; 										} 										kvcPushDownExceptions = e.detail;									}, false);									var coAdjustToolbarHeight = function(h) { 									var e = document.getElementById("cosymantecbfw"); 									if(e) { 										var nOldHeight = 0;										if(window.getComputedStyle(e,null)) {											var height = window.getComputedStyle(e,null).getPropertyValue("height");											var oldHeight = height.replace("px", "");											nOldHeight = Number(oldHeight);											if(!isNaN(nOldHeight)) {												nOldHeight = 0;											}										}										if(document.readyState === "complete") {											applyCSSHack(nOldHeight, h);										} else {											window.addEventListener("onload", applyCSSHack(nOldHeight, h), false);										}										e.style.height = h + "px";										e.style.left = window.pageXOffset + "px";									}								};							var arrayElements = new Array();							var applyCSSHack = function( oldHeight, newHeight) {									if(isUrlExcepted()) {										return;									}									if(!document.body) {										if(retryCSSHack++ < 30) {											setTimeout(function() { applyCSSHack(oldHeight, newHeight); }, 100);										}										return;									}									arrayElements = new Array();									if(document.body.style) {										document.body.style.position = "relative";										var len = newHeight + "px";										document.body.style.setProperty("margin-top", len, "important");                                        document.body.style.setProperty("border", "1px solid transparent", "important");									}									walk(document.body);									for(var i = 0; i < arrayElements.length; i++) {										var elem = arrayElements[i];										if(null == window.getComputedStyle(elem,null)) {											continue;										}										var pos = window.getComputedStyle(elem,null).getPropertyValue("position");										if(pos !== "fixed") {											continue;										}										if(elem.parentNode == document.body) {											elem.style.position = "absolute";											continue;										}										var oldTop = window.getComputedStyle(elem,null).getPropertyValue("top");										oldTop = oldTop.replace("px", "");										var nOldTop = Number(oldTop);										if(!isNaN(nOldTop)) {											nOldTop = 0;										}										var top = nOldTop + (Number(newHeight) - Number(oldHeight));										if(elem.style) {											elem.style.top = top + "px";										}									}								};							var walk = function (elm) {								if(window.getComputedStyle(elm,null) && "auto" !== window.getComputedStyle(elm,null).getPropertyValue("top")) {									arrayElements.push(elm);								}								var node;								for (node = elm.firstChild; node; node = node.nextSibling) {									if (node.nodeType === 1) {										walk(node);									}								}							};</script>
+<script type="text/javascript" id="waxCS">var WAX = function () { var _arrInputs; return { getElement: function (i) { return _arrInputs[i]; }, setElement: function(i){ _arrInputs=i; } } }(); function waxGetElement(i) { return WAX.getElement(i); } function coSetPageData(t, d){ if('wax'==t) { WAX.setElement(d);} }</script>
+    
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="This is my online portfolio featuring various projects I have created as a college student.  ">
+    <meta name="author" content="Spiro Metaxas">
+    <meta name="title" content="Spiro Metaxas - Personal Website">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="keywords" content="Spiro, Metaxas, Spiro Metaxas, spirometaxas, smetaxas, programming, developer">
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="http://spirometaxas.github.io/img/websitePicture.png" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://spirometaxas.github.io/" />
+
+    <title>Spiro Metaxas - Personal Website</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Theme CSS -->
+    <link href="css/personalWebsite3.css" rel="stylesheet">
+    <link href="css/Sidebar-6-4.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <span class="light">SPIRO</span> METAXAS
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#download">Projects</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="introduction">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+            <img src="./img/firstSlidePicture.jpg" alt="Spiro Metaxas, an undergraduate computer science major at the University of Pennsylvania." title="Spiro Metaxas">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Developer</h1>
+              <p>I am currently a computer science major at the University of Pennsylvania.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="other">
+            <img src="./img/slide2background.jpg" alt="Second slide">
+          </div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h2>Innovator</h2>
+              <h4>I enjoy looking into the newest technologies and exploring their potential.  </h4>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="other">
+            <img src="./img/slide3background3.png" alt="Third slide">
+          </div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h3>Thinker</h3>
+              <h5>I am particularly interested in applying mathematics to the potential of computer science help solve problems. </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+    </section>
+    
+    <div class="page-scroll">
+        <a href="#about" class="btn btn-circle">
+            <i class="fa fa-angle-double-down animated"></i>
+        </a>
+    </div>
+
+    <section id="about" class="text-center">
+            <div class="container">
+                <h2>ABOUT</h2>
+            </div>
+                
+            <hr class="featurette-divider">
+
+      <div class="information-section">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h1 class="featurette-heading">Background <span class="text-muted"></span></h1>
+            <p class="lead">I am a computer programmer from Upper Darby, Pennsylvania.  I graduated from Upper Darby High School in the class of 2013, and am currently an undergraduate at the University of Pennsylvania.  I am studying computer science in the school of engineering, and also plan to complete a minor in mathematics.</p>
+            <h1 class="featurette-heading">Interests <span class="text-muted"></span></h1>
+            <p class="lead">I am particularly interested in applying programming to mathematics to help identify new patterns and relations that can ultimately be used to solve problems.  I am also interested in software development, computer graphics, and web design.  In my spare time, I also enjoy playing the violin and helping the community.  </p>
+            <h1 class="featurette-heading">Experience <span class="text-muted"></span></h1>
+            <p class="lead">I have experience working with Java, C++, OCaml, Python, and LaTeX.  I also have experience with front-end web development using HTML, CSS, and Javascript.  Additionally, I have worked with graphics tools such as Maya, Houdini, and QT.   </p>
+        </div>
+        <div class="col-md-5">
+          <!--<img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="./img/aboutPicture.JPG">-->
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" width="892" height="1125" alt="Spiro Metaxas, graduation photo.  Spiro graduated from Upper Darby High School in 2013." src="./img/aboutPicture.JPG" title="Spiro Metaxas - Graduation photo">
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="text-center">
+        
+        <div class="container">
+        <h2>PROJECTS</h2>
+        </div>
+            
+        <hr class="featurette-divider">
+
+        <div class="information-section">
+        
+        <div id="wrapper">
+
+        <!-- Sidebar   -->
+    
+        <div id="sidebar-wrapper" data-spy="scroll" data-target=".sidebar-nav">
+            <div class="row">
+            <ul class="sidebar-nav" id="sidebar2">
+                <div class="menu-button-press">
+                    <a id="menu-toggle2" href="#" class="btn btn-menu visible-xs"><span class="glyphicon glyphicon-chevron-right" id="menu-button"></span><i class="icon-reorder"></i></a>
+                </div>
+                <li class="page-scroll">
+                    <a href="#Mealsteal"><span class="glyphicon glyphicon-th"> MEALSTEAL</span></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#Racer"><span class="glyphicon glyphicon-th">  RACER</a>
+                </li>
+            </ul>
+                
+            </div>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            
+      
+            <div class="container">
+                <section id="Mealsteal">
+                    <hr class="featurette-divider">
+                    <hr class="featurette-divider">
+                    <hr class="featurette-divider">
+                    
+                    <div class="row featurette">
+                        <div class="col-md-10">
+                    <h1>
+                        MEALSTEAL
+                    </h1>
+                            
+                        <img src="./img/Mealsteal2.png" class="img-responsive" width="1331" height="709" alt="Mealsteal, Spiro's project for PennApps Spring 2014." title="MEALSTEAL">
+
+                    <p>MEALSTEAL is a java-built desktop application that informs users of nearby food locations.  Facebook API is used to share location information, and Google Maps API is used to clearly display results.  I worked with three other students on the project, which was presented at PennApps Spring 2014.  </p>
+                        </div>
+                    </div>
+                    
+                    </section>
+                    
+                    <section id="Racer">
+                    <hr class="featurette-divider">
+                    <hr class="featurette-divider">
+                    <hr class="featurette-divider">
+                        
+                    <div class="row featurette">
+                        <div class="col-md-10">
+                    <h1>RACER</h1>
+                            
+                        <img src="./img/Racer2.jpg" class="img-responsive" width="1279" height="741" alt="Racer, Spiro's final project for CIS120." title="RACER">
+                            
+                    <p>RACER is a java-built console racing game.  The game is composed of three levels, and records user high scores.  The game also offers a 2D mode using Java's Graphics2D library, and a 3D mode using rotation, translation, and perspective matricies to achieve the desired affect.  </p>
+                        </div>
+                    </div>
+                        
+                        
+                    </section>
+                    
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+            
+    </section>
+        
+
+    <section id="contact" class="text-center">
+        
+    <div class="container">
+        <h2>CONTACT</h2>
+    </div>
+                
+    <hr class="featurette-divider">
+
+      <div class="information-section-contact">
+        <div class="row featurette">
+
+          <ul class="list-inline banner-social-buttons">
+                    <li><a href="https://facebook.com" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                    </li>
+                    <li><a href="http://www.linkedin.com/pub/spiro-metaxas/99/957/554" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                    </li>
+                    <li><a href="https://plus.google.com/114163671896480645682/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li>
+            </ul>
+            <p><br><br>&copy; 2014 Spiro Metaxas</p>
+
+        </div>
+      </div>
+        
+    </section>
+
+    <!-- Core JavaScript Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/personalWebsiteScripts.js"></script>
+    
+    <script>
+    $("#menu-toggle2").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+        $("#menu-button").toggleClass("glyphicon-chevron-right");
+        $("#menu-button").toggleClass("glyphicon-chevron-left");
+    });
+    </script>
+            
+    
+    <script type="text/javascript">
+    $(function() {
+        $('#sidebar-wrapper').height($("#sidebar2").height());
+    
+        $('#sidebar2').affix({
+            offset: { top: $('#sidebar2').offset().top, bottom: $('#contact').outerHeight(true) }
+        });    
+    });
+    </script>
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52755112-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
-<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.poptrox.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
-	<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			  ga('create', 'UA-42873524-2', 'auto');
-			  ga('require', 'displayfeatures');
-			  ga('send', 'pageview');
+</body>
+    
+    
 
-			</script>
+</html>
 
-		<!-- 
-			Thanks, HTML5UP, for your amazing design. Licensed under CC Attribution 3.0 Unported.
-			License: http://html5up.net/license
-			Their site: http://html5up.net
-		-->
-			<header id="header">
-
-				<!-- Logo -->
-					<h1 id="logo"><a href="#">Chaoyi Zha</a></h1>
-				
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro">Intro</a></li>
-							<li><a href="#one">What I Do</a></li>
-							<li><a href="#two">Who I Am</a></li>
-							<li><a href="#work">My Work</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</nav>
-
-			</header>
-			
-
-			<section id="intro" class="main style1 dark fullscreen">
-				<div class="content container small">
-					<header>
-						<h2>Hello there.</h2>
-					</header>
-					<p>I'm Chaoyi Zha, a PHP coder, Pythonista, and web developer.</p>
-					<footer>
-						<a href="#one" class="button style2 down">More</a>
-					</footer>
-				</div>
-			</section>
-		
-
-			<section id="one" class="main style2 right dark fullscreen">
-				<div class="content box style2">
-					<header>
-						<h2>What I Do</h2>
-					</header>
-					<p>I'm a PHP programmer and Python coder. I don't do design; but I can create 
-					intuitive, responsive, and modern web apps. I love posting my work to Github, and sharing them with the world.
-					I am fluent in PHP and Python, but know enough Javascript, HTML, and CSS to get by :) <br />
-					I use jQuery, Bootstrap, Flask, and occasionally, 960.js. As for databases, I use MySQL on a regular basis, but I can also adapt to other technologies such as SQLite and PostgreSQL, if needed.
-					
-					</p>
-				</div>
-				<a href="#two" class="button style2 down anchored">Next</a>
-			</section>
-		
-		<!-- Two -->
-			<section id="two" class="main style2 left dark fullscreen">
-				<div class="content box style2">
-					<header>
-						<h2>Who I Am</h2>
-					</header>
-					<p>I'm Chaoyi, a coder from the U.S's east coast. I speak English, French, and Chinese.
-					I'm passionate about a lot more than just coding; but we won't get into that here. </p>
-				</div>
-				<a href="#work" class="button style2 down anchored">Next</a>
-			</section>
-			
-		<!-- Work -->
-			<section id="work" class="main style3 primary">
-				<div class="content container">
-					<header>
-						<h2>My Work</h2>
-						<p>I've been writing PHP for over three years, however, Python has started to supersede PHP as my language of choice. Listed below are some of my work, but the list is far from complete.</p>
-					</header>
-						<div class="container small gallery">
-							<div class="row flush images">
-								<div class="6u"><a href="images/fulls/polr.png" class="image full l"><img src="images/thumbs/polr.png" title="Polr,  a minimalistic, open source URL Shortening framework. <a href='//polr.cf'>Site</a> | <a href='//github.com/cydrobolt/polr'>Github</a> | PHP, Python, HTML, JS, CSS, Bootstrap, jQuery, jQueryUI" alt="" /></a></div>
-								<div class="6u"><a href="images/fulls/kyanite.png" class="image full r"><img src="images/thumbs/kyanite.png" title="Kyanite, a server-side user analytics app. | <a href='//github.com/cydrobolt/kyanite'>Github</a> | PHP, HTML, JS, CSS, jQuery, Bootstrap" alt="" /></a></div>
-							</div>
-							<div class="row flush images">
-								<div class="6u"><a href="images/fulls/xmemo.jpg" class="image full l"><img src="images/thumbs/xmemo.png" title="XMemo, an online note-taking solution. | <a href='//github.com/cydrobolt/switext'>Github</a> | PHP, HTML, CSS, JS" alt="" /></a></div>
-								<div class="6u"><a href="images/fulls/cpaste.png" class="image full r"><img src="images/thumbs/cpaste.png" title="CPaste, a Python pastebin. | <a href='//github.com/cydrobolt/cpaste'>Github</a> | Python, Flask, HTML, CSS, Prism.js, Bootstrap" alt="" /></a></div>
-							</div>
-							<div class="row flush images">
-								<div class="6u"><a href="images/fulls/starlight.jpg" class="image full l"><img src="images/thumbs/starlight.png" title="StarLight, an application that allows children's hospitals to gather quality data from impaired patients | <a href='//github.com/cydrobolt/starlight'>Github</a> | Python, Flask, JS (a lot of it), jQuery, Chart.js, HTML, CSS, Bootstrap" alt="" /></a></div>
-								<div class="6u"><a href="images/fulls/socialacademy.jpg" class="image full r"><img src="images/thumbs/socialacademy.png" title="SocialAcademy, a Python app built with Flask and lots of AJAX, designed to minimize distractions by allowing students to study together, in real time. | Not Open Source [yet] | Python, Flask, JS, jQuery, HTML, CSS, Bootstrap, jQuery, lots of AJAX" alt="" /></a></div>
-							</div>
-							<div class="row flush images">
-								<div class="6u"><a href="images/fulls/dogeboosting.jpg" class="image full r"><img src="images/thumbs/dogeboosting.jpg" title="A League of Legends boosting website | <a href='//dogeboosting.com'>dogeboosting.com</a>| PHP, MySQL, JS, HTML, CSS, Bootstrap, jQuery" alt="" /></a></div>
-								<div class="6u"><a href="images/fulls/comingsoon.png" class="image full r"><img src="images/thumbs/comingsoon.png" title="More coming soon :)" alt="" /></a></div>
-							</div>
-						</div>
-
-				</div>
-			</section>
-			
-			<section id="oss" class="main style3 primary">
-				<div class="content container">
-					<header>
-						<h2>Open Source Contributions</h2>
-						<p>In addition to my personal projects, I have also contributed to some open-source projects, such as the <a href='//fedoraproject.org'>Fedora Project</a>, a Linux operating system. 
-						I have contributed as web developer, infrastructure app developer, and apprentice sysadmin. I used Python, HTML, CSS, JS, Flask, Cherrypy, Bootstrap, and some 960.gs. I am currently a websites committer and am working towards becoming a full infrastructure committer.</p>
-					</header>
-				</div>
-			</section>
-			
-		<!-- Contact -->
-			<section id="contact" class="main style3 secondary">
-				<div class="content container">
-					<header>
-						<h2>Contact.</h2>
-						<p>You can contact me through email, IRC, or even Twitter. Look below for details.</p>
-					</header>
-					<div class="box container small">
-					Twitter: <a href='//twitter.com/cydrobolt'>@Cydrobolt</a>
-					<br />GitHub: <a href='//github.com/cydrobolt'>Cydrobolt</a>
-					<br />Personal Email: <a href='http://www.google.com/recaptcha/mailhide/d?k=01g2VZs2ihTgsH7r9ghVjwmw==&c=EKLq1DYpcPhTu2y2MCC2bpYJxyQzrYCUt5vw5bEWxOE='>Click to reveal</a>
-					<br />Fedora Email: <a class="__cf_email__" href="http://www.cloudflare.com/email-protection" data-cfemail="b5d6ccd1c7dad7dad9c1f5d3d0d1dac7d4c5c7dadfd0d6c19bdac7d2">[email&nbsp;protected]</a><script type="text/javascript">
-/* <![CDATA[ */
-(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
-/* ]]> */
-</script>
-					<br />IRC Username: Cydrobolt on irc.freenode.net:6667 at ##cydrobolt
-					<br />Send me a PM or a Memo and I will reply as soon as possible.
-					<br />GPG Key: <a href='//pgp.mit.edu/pks/lookup?op=get&search=0xC8A323B70935BC24'>0935BC24</a> (new key, old key is now invalid)
-					</div>
-				</div>
-			</section>
-			
-		<!-- Footer -->
-			<footer id="footer">
-			
-					<ul class="actions">
-						<li><a href="//twitter.com/cydrobolt" class="fa solo fa-twitter"><span>Twitter</span></a></li>
-						<li><a href="//github.com/cydrobolt" class="fa solo fa-github"><span>Github</span></a></li>
-						<li><a href="//www.linkedin.com/pub/chaoyi-zha/a0/191/330" class="fa solo fa-linkedin"><span>LinkedIn</span></a></li>
-						
-
-					</ul>
-
-
-					<ul class="menu">
-						<li>&copy; Copyright 2014 Chaoyi Zha (cydrobolt)</li>
-						
-					</ul>
-			
-			</footer>
-			
-	</body>
-</html
